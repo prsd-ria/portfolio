@@ -230,6 +230,171 @@
             font-size: 0.85em;
         }
 
+        .project-links {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+
+        .project-link:hover {
+            background: #764ba2;
+        }
+
+        .project-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            cursor: pointer;
+        }
+
+        .certificate-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .certificate-info {
+            padding: 20px;
+        }
+
+        .certificate-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .certificate-info p {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .certificate-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .cert-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-view {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-view:hover {
+            background: #5568d3;
+        }
+
+        .btn-download {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #38a169;
+        }
+
+        /* Modal for certificate viewing */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 2% auto;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #bbb;
+        }
+
         /* Education Section */
         .education-content {
             max-width: 800px;
@@ -300,6 +465,11 @@
             }
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
@@ -320,8 +490,13 @@
             }
 
             .projects-grid,
-            .skills-grid {
+            .skills-grid,
+            .certificates-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 10% auto;
             }
         }
     </style>
@@ -334,7 +509,7 @@
             <p class="subtitle">Computer Science & Information Systems Student | Business Analyst</p>
             <p>Bridging Technology and Business Solutions</p>
             <div class="contact-links">
-                <a href="mailto:riaprasad@email.com">Email Me</a>
+                <a href="mailto:riaprasad07@gmail.com">Email Me</a>
                 <a href="#contact">Get In Touch</a>
             </div>
         </div>
@@ -346,6 +521,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certificates">Certificates</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -436,6 +612,20 @@
                             <span class="tech-tag">SQL</span>
                             <span class="tech-tag">HTML/CSS/JS</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/police-complaint-system" class="project-link" target="_blank">
+                                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View on GitHub
+                            </a>
+                            <a href="https://yourusername.github.io/police-complaint-system" class="project-link" target="_blank">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -457,6 +647,14 @@
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">SQL</span>
                             <span class="tech-tag">Web Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/tutorial-management" class="project-link" target="_blank">
+                                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View on GitHub
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -480,11 +678,93 @@
                             <span class="tech-tag">Network Security</span>
                             <span class="tech-tag">Infrastructure Design</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/network-design" class="project-link" target="_blank">
+                                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View Documentation
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <div class="container">
+            <h2>Certifications & Achievements</h2>
+            <div class="certificates-grid">
+                <!-- Certificate 1 - Example structure -->
+                <div class="certificate-card">
+                    <div class="certificate-preview" onclick="openModal('cert1')">
+                        <!-- Replace with actual certificate image -->
+                        <img src="certificates/certificate1.jpg" alt="Certificate 1" id="cert1-thumb">
+                        <!-- Or use placeholder icon if no image yet -->
+                        📜
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Certificate Name</h3>
+                        <p><strong>Issuer:</strong> Organization Name</p>
+                        <p><strong>Date:</strong> Month Year</p>
+                        <p>Brief description of what this certification covers.</p>
+                        <div class="certificate-actions">
+                            <button class="cert-btn btn-view" onclick="openModal('cert1')">View</button>
+                            <a href="certificates/certificate1.pdf" download class="cert-btn btn-download">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 - Example structure -->
+                <div class="certificate-card">
+                    <div class="certificate-preview" onclick="openModal('cert2')">
+                        <img src="certificates/certificate2.jpg" alt="Certificate 2" id="cert2-thumb">
+                        📜
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Another Certificate</h3>
+                        <p><strong>Issuer:</strong> Organization Name</p>
+                        <p><strong>Date:</strong> Month Year</p>
+                        <p>Brief description of this certification.</p>
+                        <div class="certificate-actions">
+                            <button class="cert-btn btn-view" onclick="openModal('cert2')">View</button>
+                            <a href="certificates/certificate2.pdf" download class="cert-btn btn-download">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 - Example structure -->
+                <div class="certificate-card">
+                    <div class="certificate-preview" onclick="openModal('cert3')">
+                        <img src="certificates/certificate3.jpg" alt="Certificate 3" id="cert3-thumb">
+                        📜
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Third Certificate</h3>
+                        <p><strong>Issuer:</strong> Organization Name</p>
+                        <p><strong>Date:</strong> Month Year</p>
+                        <p>Brief description of this certification.</p>
+                        <div class="certificate-actions">
+                            <button class="cert-btn btn-view" onclick="openModal('cert3')">View</button>
+                            <a href="certificates/certificate3.pdf" download class="cert-btn btn-download">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more certificate cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Certificate Viewing -->
+    <div id="certModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <img id="modalImage" src="" alt="Certificate">
+        </div>
+    </div>
 
     <!-- Education Section -->
     <section id="education">
@@ -533,7 +813,7 @@
         <div class="container">
             <p>&copy; 2025 Ria Prasad. All rights reserved.</p>
             <div class="social-links">
-                <a href="www.linkedin.com/in/riaprasad25" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/riaprasad25" target="_blank">LinkedIn</a>
                 <a href="mailto:riaprasad07@gmail.com">Email</a>
                 <a href="https://prsd-ria.github.io/portfolio/" target="_blank">GitHub</a>
             </div>
@@ -541,6 +821,7 @@
     </footer>
 
     <script>
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -552,6 +833,27 @@
                     });
                 }
             });
+        });
+
+        // Certificate modal functions
+        function openModal(certId) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('modalImage');
+            const thumbImg = document.getElementById(certId + '-thumb');
+            
+            modal.style.display = 'block';
+            modalImg.src = thumbImg.src;
+        }
+
+        function closeModal() {
+            document.getElementById('certModal').style.display = 'none';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 </body>
