@@ -3,1178 +3,637 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ria Prasad - Business Analyst Portfolio</title>
+    <title>ria</title>
+    <link rel="icon" href="/12652057871711520534 (1).svg" type="image/icon">
     <style>
         :root {
-            --bg: #060606;
-            --surface: rgba(15, 15, 15, 0.92);
-            --surface-strong: #101010;
-            --text: #f5f1e8;
-            --muted: #b8b0a1;
-            --primary: #c8a96a;
-            --secondary: #e0c17d;
-            --accent: #f7d58b;
-            --dark: #000000;
+            --bg-primary: #090d16;
+            --bg-surface: #0f172a;
+            --accent-blue: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            color: white;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            background-color: transparent;
+            color: var(--text-main);
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top left, rgba(200, 169, 106, 0.16), transparent 24%),
-                radial-gradient(circle at bottom right, rgba(245, 213, 139, 0.12), transparent 24%),
-                linear-gradient(135deg, #040404 0%, #0c0c0c 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(200, 169, 106, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(200, 169, 106, 0.06) 1px, transparent 1px);
-            background-size: 34px 34px;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent 90%);
-            pointer-events: none;
-            z-index: -1;
+            background-color: var(--bg-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-main);
+            padding: 0 0 80px 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 760px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        header {
-            color: white;
-            padding: 100px 0 110px;
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 24%),
-                linear-gradient(135deg, #000000 0%, #171717 42%, #3d2f1f 100%);
-        }
-
-        header::before,
-        header::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(30px);
-            opacity: 0.55;
-            animation: float 10s ease-in-out infinite;
-        }
-
-        header::before {
-            width: 260px;
-            height: 260px;
-            background: rgba(200,169,106,0.28);
-            top: -70px;
-            right: -70px;
-        }
-
-        header::after {
-            width: 220px;
-            height: 220px;
-            background: rgba(247,213,139,0.2);
-            bottom: -60px;
-            left: -40px;
-            animation-delay: -5s;
-        }
-
-        header .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 36px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 12px;
-            border-radius: 999px;
-            background: rgba(200,169,106,0.16);
-            color: #f7e9c8;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            margin-bottom: 16px;
-            backdrop-filter: blur(10px);
-        }
-
-        header h1 {
-            font-size: clamp(2.5rem, 5vw, 4.2rem);
-            margin-bottom: 12px;
-            line-height: 1.05;
-            animation: fadeInDown 0.6s ease both;
-        }
-
-        header h1 span {
-            display: inline-block;
-            background: linear-gradient(90deg, #ffffff, #f7d58b, #c8a96a);
-            background-size: 200% 100%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textShift 5s ease-in-out infinite;
-        }
-
-        header .subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 14px;
-            color: #f2e4c3;
-            max-width: 620px;
-            animation: fadeInUp 0.6s ease 0.12s both;
-        }
-
-        .hero-text {
-            font-size: 1rem;
-            color: #ece0bf;
-            max-width: 600px;
-            margin-bottom: 26px;
-            animation: fadeInUp 0.6s ease 0.2s both;
-        }
-
-        header .contact-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.6s ease 0.25s both;
-        }
-
-        header .contact-links a {
-            color: white;
-            text-decoration: none;
-            padding: 9px 14px;
-            border: 1px solid rgba(200,169,106,0.28);
-            border-radius: 999px;
-            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.16);
-            font-size: 0.92rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        header .contact-links a:hover {
-            transform: translateY(-2px);
-            background: #f7d58b;
-            color: #111111;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.22);
-        }
-
-        .hero-card {
-            padding: 24px;
-            border-radius: 24px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(200,169,106,0.24);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-            animation: fadeInUp 0.6s ease 0.2s both;
-        }
-
-        .hero-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 12px;
-            color: white;
-        }
-
-        .hero-card ul {
-            list-style: none;
-            display: grid;
-            gap: 10px;
-        }
-
-        .hero-card li {
-            color: #e2e8f0;
-            padding-left: 16px;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .hero-card li::before {
-            content: '•';
-            color: #f7d58b;
-            position: absolute;
-            left: 0;
-        }
-
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(8, 8, 8, 0.9);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+            background-color: rgba(9, 13, 22, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links-container {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            justify-content: center;
+            list-style: none;
+            gap: 20px;
             flex-wrap: wrap;
-            gap: 8px;
-            padding: 14px 0;
         }
 
-        nav ul li a {
-            color: #e2e8f0;
+        nav a {
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 999px;
-            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
         }
 
-        nav ul li a:hover,
-        nav ul li a:focus {
-            color: white;
-            background: rgba(255,255,255,0.14);
-            transform: translateY(-1px);
+        nav a:hover, nav a.brand {
+            color: var(--accent-blue);
         }
 
-        section {
-            padding: 86px 0;
-            margin: 28px 0;
-            border-radius: 30px;
-            background: var(--surface);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(200, 169, 106, 0.14);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(14px);
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent 0%, rgba(200,169,106,0.09) 48%, transparent 100%);
-            transform: translateX(-120%);
-            transition: transform 0.8s ease;
-            pointer-events: none;
-        }
-
-        section:hover::before {
-            transform: translateX(120%);
-        }
-
-        section:nth-child(even) {
-            background: rgba(12, 12, 12, 0.94);
-        }
-
-        h2 {
-            font-size: 2.05rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #f7f1e7;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            letter-spacing: -0.02em;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 92px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 999px;
-            margin: 12px auto 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 28px;
-            align-items: start;
-            margin-top: 24px;
-            max-width: 1040px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .about-content {
-            font-size: 1.06rem;
-            line-height: 1.9;
-            color: var(--muted);
-            padding: 8px 0;
-        }
-
-        .about-content p + p {
-            margin-top: 16px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-            max-width: 1140px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .experience-grid {
-            display: grid;
-            gap: 24px;
-            margin-top: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .experience-card {
-            background: linear-gradient(145deg, #131313, #0b0b0b);
-            border: 1px solid rgba(200, 169, 106, 0.16);
-            border-radius: 26px;
-            padding: 30px;
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent 0%, rgba(200,169,106,0.09) 50%, transparent 100%);
-            transform: translateX(-120%);
-            transition: transform 0.8s ease;
-            pointer-events: none;
-        }
-
-        .experience-card:hover::before {
-            transform: translateX(120%);
-        }
-
-        .experience-badge {
-            display: inline-flex;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            font-size: 0.8rem;
+        nav a.brand {
             font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+        }
+
+        /* Nav Social Icons */
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-left: 1px solid var(--border-color);
+            padding-left: 20px;
+        }
+
+        .nav-socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .nav-socials a svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .nav-socials a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero / Intro Section */
+        header {
+            padding: 80px 0 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-blue);
             margin-bottom: 12px;
         }
 
-        .experience-card h3 {
-            color: #f7f1e7;
-            font-size: 1.25rem;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .hero-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-blue);
+            padding-bottom: 2px;
+        }
+
+        .hero-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 32px;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+        }
+
+        h2::before {
+            content: "/ ";
+            color: var(--text-muted);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        /* About Grid / Content */
+        .about-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .education-block {
+            border-left: 2px solid var(--accent-blue);
+            padding-left: 20px;
+            margin-top: 24px;
+        }
+
+        .education-block h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .degree {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            margin: 4px 0 12px 0;
+        }
+
+        .coursework {
+            margin-top: 16px;
+        }
+
+        .coursework h4 {
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .coursework ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            list-style: none;
+        }
+
+        .coursework li {
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 3px 8px;
+            color: var(--text-muted);
+        }
+
+        /* Experience Items */
+        .experience-item, .project-item, .cert-item {
+            margin-bottom: 40px;
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 6px;
         }
 
-        .experience-company {
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 4px;
+        .item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
-        .experience-period {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 14px;
+        .item-meta {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-blue);
         }
 
-        .experience-list {
-            list-style: none;
-            display: grid;
-            gap: 10px;
-            color: var(--muted);
+        .company-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        ul.item-details {
+            list-style-type: none;
+            padding-left: 0;
             margin-bottom: 16px;
         }
 
-        .experience-list li {
-            padding-left: 16px;
+        ul.item-details li {
             position: relative;
+            padding-left: 16px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        .experience-list li::before {
-            content: '•';
-            color: var(--primary);
+        ul.item-details li::before {
+            content: "—";
             position: absolute;
             left: 0;
+            color: var(--accent-blue);
         }
 
-        .skill-category {
-            background: linear-gradient(145deg, rgba(20,20,20,0.95), rgba(12,12,12,0.97));
-            padding: 24px;
-            border-radius: 22px;
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
-            border: 1px solid rgba(200, 169, 106, 0.16);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Tech Tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
         }
 
-        .skill-category:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 22px 38px rgba(200, 169, 106, 0.16);
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2px 8px;
+            color: var(--text-muted);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
         }
 
         .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 14px;
-            font-size: 1.16rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
         }
 
         .skill-category ul {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .skill-category li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(200, 169, 106, 0.14);
-            color: var(--muted);
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        .skill-category li:last-child {
-            border-bottom: none;
+        /* Project Links & External Actions */
+        .item-links {
+            margin-top: 12px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            max-width: 1120px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .project-card,
-        .certificate-card,
-        .education-content {
-            background: linear-gradient(145deg, #121212, #0a0a0a);
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(200, 169, 106, 0.16);
-            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            position: relative;
-        }
-
-        .project-card::after,
-        .certificate-card::after,
-        .education-content::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.22), transparent);
-            transform: translateX(-120%);
-            transition: transform 0.8s ease;
-            pointer-events: none;
-        }
-
-        .project-card:hover::after,
-        .certificate-card:hover::after,
-        .education-content:hover::after {
-            transform: translateX(120%);
-        }
-
-        .project-card:hover,
-        .certificate-card:hover,
-        .education-content:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 26px 48px rgba(200, 169, 106, 0.16);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #3c2d1f 100%);
-            color: white;
-            padding: 26px 24px 22px;
-            position: relative;
-        }
-
-
-
-        .project-header h3 {
-            font-size: 1.28rem;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .project-role {
-            font-size: 0.92rem;
-            opacity: 0.92;
-        }
-
-        .project-body {
-            padding: 24px;
-        }
-
-        .project-body p,
-        .project-body li {
-            color: var(--muted);
-        }
-
-        .project-body ul {
-            margin-left: 18px;
-            margin-bottom: 14px;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 14px;
-        }
-
-        .tech-tag {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 7px 12px;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            box-shadow: 0 10px 20px rgba(200,169,106,0.16);
-        }
-
-        .project-links {
-            margin-top: 20px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(200, 169, 106, 0.16);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 9px 16px;
-            border-radius: 999px;
+        .item-links a {
+            color: var(--accent-blue);
             text-decoration: none;
-            color: white;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 18px rgba(139,111,71,0.16);
         }
 
-        .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 22px rgba(200,169,106,0.22);
+        .item-links a:hover {
+            text-decoration: underline;
         }
 
-        .certificates-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-top: 36px;
-            max-width: 980px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: left;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
         }
 
-        .certificate-card {
-            display: grid;
-            width: min(100%, 560px);
-            overflow: hidden;
-            border-radius: 28px;
-            background: linear-gradient(145deg, rgba(18, 18, 18, 0.98), rgba(8, 8, 8, 0.96));
-            border: 1px solid rgba(200, 169, 106, 0.16);
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
-        }
-
-        .certificate-preview {
-            width: 100%;
-            min-height: 240px;
+        footer .container {
             display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            padding: 28px;
-            background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 25%),
-                linear-gradient(135deg, #c8a96a 0%, #8b6f47 45%, #3c2d1f 100%);
-        }
-
-        .certificate-preview::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.16), transparent);
-            transform: translateX(-110%);
-            transition: transform 0.8s ease;
-        }
-
-        .certificate-preview:hover::before {
-            transform: translateX(110%);
-        }
-
-        .certificate-preview-content {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            gap: 8px;
-            max-width: 320px;
-            padding: 18px 20px;
-            border-radius: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.16);
-            color: white;
-        }
-
-        .cisco-logo {
-            display: inline-flex;
-            width: fit-content;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.16);
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .cert-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .cert-subtitle {
-            color: #f7e8c6;
-            font-size: 0.95rem;
-        }
-
-        .certificate-info {
-            padding: 26px 28px 28px;
-            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 16px;
         }
 
-        .certificate-info h3 {
-            color: #f7f1e7;
-            font-size: 1.24rem;
+        footer p {
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            margin-bottom: 0;
         }
 
-        .cert-details {
-            display: grid;
-            gap: 8px;
-            padding: 14px 16px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(200, 169, 106, 0.12);
-        }
-
-        .cert-details p {
-            color: var(--muted);
-            margin: 0;
-        }
-
-        .cert-description {
-            display: grid;
-            gap: 8px;
-        }
-
-        .cert-description h4 {
-            color: #f2e4c3;
-            font-size: 1rem;
-        }
-
-        .cert-description ul {
-            list-style: disc;
-            padding-left: 18px;
-            display: grid;
-            gap: 7px;
-            color: var(--muted);
-        }
-
-        .certificate-actions {
+        .social-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 4px;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
         }
 
-        .cert-btn {
-            flex: 1;
-            min-width: 150px;
-            padding: 10px 14px;
-            border-radius: 999px;
-            text-align: center;
+        .social-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid transparent;
         }
 
-        .cert-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-view {
-            background: linear-gradient(135deg, #c8a96a, #8b6f47);
-            box-shadow: 0 10px 20px rgba(200,169,106,0.16);
-        }
-
-        .btn-download {
-            background: linear-gradient(135deg, #e0c17d, #b28a3d);
-            color: #171717;
-            box-shadow: 0 10px 20px rgba(224,193,125,0.16);
-        }
-
-        .education-content {
-            padding: 30px;
-            height: 100%;
-            max-width: 100%;
-        }
-
-        .contact-card {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 30px 32px;
-            border-radius: 24px;
-            background: linear-gradient(145deg, rgba(18, 18, 18, 0.98), rgba(8, 8, 8, 0.96));
-            border: 1px solid rgba(200, 169, 106, 0.16);
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
-        }
-
-        .contact-list {
-            display: grid;
-            gap: 10px;
-            margin-top: 20px;
-            color: var(--muted);
-        }
-
-        footer {
-            background: linear-gradient(135deg, #000000 0%, #171717 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 24px;
-        }
-
-        footer .social-links a {
-            color: #f2e4c3;
-            text-decoration: none;
-            margin: 0 12px;
-            transition: color 0.25s ease;
-        }
-
-        footer .social-links a:hover {
-            color: #f7d58b;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0%,100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-        }
-
-        @keyframes textShift {
-            0%,100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .social-links a:hover {
+            color: var(--accent-blue);
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 84px 0 92px;
+            .nav-socials {
+                display: none; /* Hide top-right icons on smaller screens if wrapping gets tight, or adjust as needed */
             }
+        }
 
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .projects-grid,
-            .skills-grid,
-            .certificates-container {
-                grid-template-columns: 1fr;
-            }
-
-            .certificate-preview {
-                min-height: 220px;
-            }
-
-            .contact-card {
-                padding: 24px;
-            }
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            nav ul { gap: 12px; }
+            footer .container { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="reveal">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow">Application Developer. Loves to explore new stuff</p>
-                    <h1><span>Ria Prasad</span></h1>
-                    <p class="subtitle">Computer Science & Information Systems Student | Application Developer</p>
-                    <p class="hero-text">I turn complex business needs into practical digital solutions through analysis, systems thinking, and polished product delivery.</p>
-                    <div class="contact-links">
-                        <a href="mailto:riaprasad07@gmail.com">Email Me</a>
-                        <a href="#contact">Get In Touch</a>
-                    </div>
-                </div>
-
-                <div class="hero-card">
-                    <p class="eyebrow">Current Focus</p>
-                    <h3>Breaking into the AI driven modern Technology</h3>
-                    <ul>
-                        <li>Exploring Trending development frameworks and languages</li>
-                        <li>Automation and AI Stacks</li>
-                        <li>Modern web applications and system design</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
 
     <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="container">
+            <a href="#" class="brand">Ria Prasad</a>
+            <div class="nav-links-container">
+                <ul>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#experience">experience</a></li>
+                    <li><a href="#skills">skills</a></li>
+                    <li><a href="#projects">projects</a></li>
+                    <li><a href="#certificates">certs</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+                <div class="nav-socials">
+                    <!-- GitHub Icon -->
+                    <a href="https://github.com/prsd-ria" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/in/riaprasad25" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <!-- Email Icon -->
+                    <a href="mailto:riaprasad07@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.818l10 8.108 10-8.108v11.818h-20z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <!-- About Section -->
-    <section id="about" class="reveal">
-        <div class="container">
-            <h2>About Me</h2>
+    <div class="container">
+        <!-- Hero Header -->
+        <header>
+            <p class="hero-eyebrow">hi, ria here.</p>
+            <h1>Application Developer</h1>
+            <p class="hero-subtitle">Bridging business needs and technical systems with clean code and analysis.</p>
+            <div class="hero-links">
+                <a href="mailto:riaprasad07@gmail.com">riaprasad07@gmail.com</a>
+                <a href="https://www.linkedin.com/in/riaprasad25" target="_blank">LinkedIn</a>
+                <a href="https://github.com/prsd-ria" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>about me</h2>
             <div class="about-grid">
-                <div class="about-content">
-                    <p>I'm a third-year Computer Science and Information Systems student at the University of the South Pacific, specializing in Business Information Systems. With graduation expected in 2026, I'm passionate about bridging the gap between business needs and technology solutions.</p>
-                    <p>My experience leading projects and analyzing systems has equipped me with the skills to translate complex technical concepts into actionable business insights. I thrive in collaborative environments where I can leverage both my technical foundation and business acumen.</p>
+                <div>
+                    <p>I'm an application developer and computer science student passionate about translating complex business requirements into high-performing digital solutions. I thrive where systems thinking meets active development.</p>
                 </div>
-                <div class="education-content reveal" id="education">
+                
+                <div class="education-block" id="education">
                     <h3>University of the South Pacific</h3>
-                    <p class="degree">Bachelor of Science in Computer Science & Business IS</p>
-                  
-                    <p>Expected Graduation: 2027</p>
-                    <p>Suva, Fiji</p>
+                    <p class="degree">B.Sc. in Computer Science & Business Information Systems</p>
+                    <p>Expected Graduation: 2027 • Suva, Fiji</p>
                     
                     <div class="coursework">
-                        <h4>Relevant Coursework:</h4>
+                        <h4>Relevant Coursework</h4>
                         <ul>
                             <li>Systems Analysis & Design</li>
-                            <li>Database Management Systems</li>
+                            <li>Database Management</li>
                             <li>Project Management</li>
-                            <li>Web Applications Development</li>
+                            <li>Web Apps Dev</li>
                             <li>Computer Networks</li>
-                            <li>Data & Information Security</li>
-                            <li>Ethics and Governance</li>
+                            <li>Information Security</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience" class="reveal">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-badge">Current Role</div>
-                    <h3>Application Developer (MVC / C#)</h3>
-                    <p class="experience-company">Carpenters Fiji Ltd</p>
-                    <p class="experience-period">2025 — Present</p>
-                    <ul class="experience-list">
-                        <li>Developed and maintained web applications using ASP.NET MVC and C#.</li>
-                        <li>Helped manage Internal systems made with JBase</li>
-                        <li>Worked with SQL-based systems and contributed to reliable application logic.</li>
-                        <li>Collaborated with teams to translate business requirements into practical software solutions.</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span class="tech-tag">ASP.NET MVC</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">Web Development</span>
-                          <span class="tech-tag">JBase</span>
-                    </div>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>experience</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Application Developer (MVC / C#)</span>
+                    <span class="item-meta">2025 — Present</span>
+                </div>
+                <p class="company-subtitle">Carpenters Fiji Ltd</p>
+                <ul class="item-details">
+                    <li>Developed and maintained production web applications using ASP.NET MVC and C#.</li>
+                    <li>Contributed to the management and operations of internal jBase systems.</li>
+                    <li>Maintained and optimized SQL-based backend database routines and logic.</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">ASP.NET MVC</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">jBase</span>
+                    <span class="tech-tag">API</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="reveal">
-        <div class="container">
-            <h2>Technical Skills</h2>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>technical skills</h2>
             <div class="skills-grid">
-                <div class="skill-category reveal reveal">
+                <div class="skill-category">
                     <h3>Business & Analysis</h3>
                     <ul>
-                        <li>Power BI</li>
-                        <li>Microsoft Excel</li>
+                        <li>Power BI & Excel</li>
                         <li>Requirements Gathering</li>
                         <li>Process Improvement</li>
                         <li>Project Management</li>
-                        <li>Stakeholder Communication</li>
                     </ul>
                 </div>
-                <div class="skill-category reveal">
+                <div class="skill-category">
                     <h3>Database & Query</h3>
                     <ul>
-                        <li>SQL</li>
-                        <li>Database Design</li>
-                        <li>Data Modeling</li>
-                        <li>Data Analysis</li>
-                        <li>Query Optimization</li>
+                        <li>SQL Database Design</li>
+             
+                      
+                        <li>Database Migration</li>
                     </ul>
                 </div>
-                <div class="skill-category reveal">
+                <div class="skill-category">
                     <h3>Development</h3>
                     <ul>
-                        <li>HTML & CSS</li>
-                        <li>JavaScript</li>
-                        <li>Java</li>
-                        <li>C++</li>
-                        <li>C#</li>
-                        <li>ASP.NET</li>
-                        
+                        <li>C#, Java, C++</li>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>ASP.NET / Spring Boot</li>
                     </ul>
                 </div>
-                <div class="skill-category reveal">
-                    <h3>Systems & Infrastructure</h3>
+                <div class="skill-category">
+                    <h3>Infrastructure</h3>
                     <ul>
                         <li>Cisco Network Design</li>
-                        <li>Systems Analysis</li>
-                        <li>Windows & Linux</li>
-                        <li>Network Configuration</li>
+                      
                         <li>Cybersecurity Fundamentals</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects -->
-    <section id="projects" class="reveal">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-           
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <h3>Police Complaint Management System</h3>
-                        <p class="project-role">Project Lead | 2025</p>
-                    </div>
-                    <div class="project-body">
-                        <p>Led development of a full-stack web application to streamline police complaint processing and tracking.</p>
-                        <ul>
-                            <li>Designed system architecture with 12-table database schema</li>
-                            <li>Coordinated team of 4 developers using Agile methodology</li>
-                            <li>Created comprehensive system documentation</li>
-                            <li>Implemented role-based access control</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">HTML/CSS/JS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/prsd-ria/police-complaint-system" class="project-link" target="_blank">
-                                
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>featured projects</h2>
             
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <h3>Tutorial Management System</h3>
-                        <p class="project-role">Systems Analyst | 2024</p>
-                    </div>
-                    <div class="project-body">
-                        <p>Developed academic scheduling and resource management system for educational institutions.</p>
-                        <ul>
-                            <li>Gathered requirements from stakeholders</li>
-                            <li>Designed database for enrollment and scheduling</li>
-                            <li>Created UI mockups and conducted usability testing</li>
-                            <li>Implemented data validation and reporting</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Web Development</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/prsd-ria/tutorial-management" class="project-link" target="_blank">
-                               
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Police Complaint Management System</span>
+                    <span class="item-meta">Project Lead | 2025</span>
                 </div>
-
-             
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <h3>Enterprise Network Design</h3>
-                        <p class="project-role">Network Designer | 2025</p>
-                    </div>
-                    <div class="project-body">
-                        <p>Designed comprehensive network infrastructure for a medium-sized organization.</p>
-                        <ul>
-                            <li>Analyzed business requirements for optimal architecture</li>
-                            <li>Configured routers, switches, and security protocols</li>
-                            <li>Documented network topology and IP addressing</li>
-                            <li>Presented technical recommendations to stakeholders</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Cisco Packet Tracer</span>
-                            <span class="tech-tag">Network Security</span>
-                            <span class="tech-tag">Infrastructure Design</span>
-                              <span class="tech-tag">Wireshark</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/prsd-ria/network-design" class="project-link" target="_blank">
-                                
-                                View Documentation
-                            </a>
-                        </div>
-                    </div>
+                <p>Led a 4-person team building a full-stack complaint processing platform with a custom 12-table database schema and role-based access control.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Agile</span>
+                </div>
+                <div class="item-links">
+                    <a href="https://github.com/prsd-ria/police-complaint-system" target="_blank">View on GitHub →</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Certificates -->
-    <section id="certificates" class="reveal">
-        <div class="container">
-            <h2>Professional Certifications</h2>
-            <div class="certificates-container">
-                <div class="certificate-card reveal">
-                    <div class="certificate-preview" onclick="openModal()">
-                        <div class="certificate-preview-content">
-                            <div class="cisco-logo">CISCO</div>
-                            <div class="cert-title">Networking Academy</div>
-                            <div class="cert-subtitle">Certificate of Course Completion</div>
-                        </div>
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Introduction to Cybersecurity</h3>
-                        <div class="cert-details">
-                            <p><strong>Issuer:</strong> Cisco Networking Academy</p>
-                            <p><strong>Date:</strong> June 19, 2025</p>
-                            <p><strong>Credential ID:</strong> Verified by Cisco</p>
-                        </div>
-                        <div class="cert-description">
-                            <h4>Skills Demonstrated:</h4>
-                            <ul>
-                                <li>Understanding cybersecurity fundamentals and potential impact</li>
-                                <li>Identifying common cyber threats, attacks, and vulnerabilities</li>
-                                <li>Implementing online protection strategies</li>
-                                <li>Understanding organizational security against cyber attacks</li>
-                                <li>Exploring cybersecurity career pathways and opportunities</li>
-                            </ul>
-                        </div>
-                        <div class="certificate-actions">
-                            <button class="cert-btn btn-view" onclick="openModal()">View Certificate</button>
-                            <a href="certificates/introToCybersecurityCISCO.pdf" download class="cert-btn btn-download">Download PDF</a>
-                        </div>
-                    </div>
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Tutorial Management System</span>
+                    <span class="item-meta">Systems Analyst | 2024</span>
+                </div>
+                <p>Designed an academic scheduling and resource management interface following structured stakeholder requirement phases.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">UI Mockups</span>
+                </div>
+                <div class="item-links">
+                    <a href="https://github.com/prsd-ria/tutorial-management" target="_blank">View on GitHub →</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-
-
-    <section id="contact" class="reveal">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-card reveal">
-                <p>I'm currently seeking opportunities in Application Development or any other related fields to my degree and experiance. Available for immediate opportunities.</p>
-                <div class="contact-list">
-                    <p><strong>Email:</strong> riaprasad07@gmail.com</p>
-                    <p><strong>Phone:</strong> +679-8666373</p>
-                    <p><strong>Location:</strong> Suva, Fiji</p>
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Enterprise Network Design</span>
+                    <span class="item-meta">Network Designer | 2025</span>
+                </div>
+                <p>Architected a complete medium-sized corporate network infrastructure blueprint complete with topology specs, IP schemas, and security protocols.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Cisco Packet Tracer</span>
+                    <span class="tech-tag">Wireshark</span>
+                    <span class="tech-tag">Security</span>
+                </div>
+                <div class="item-links">
+                    <a href="https://github.com/prsd-ria/network-design" target="_blank">View Documentation →</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Ria Prasad. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/riaprasad25" target="_blank">LinkedIn</a>
-                <a href="mailto:riaprasad07@gmail.com">Email</a>
-                <a href="https://prsd-ria.github.io/portfolio/" target="_blank">GitHub</a>
+        <!-- Certificates Section -->
+        <section id="certificates">
+            <h2>certifications</h2>
+            <div class="cert-item">
+                <div class="item-header">
+                    <span class="item-title">Introduction to Cybersecurity</span>
+                    <span class="item-meta">June 2025</span>
+                </div>
+                <p class="company-subtitle">Cisco Networking Academy</p>
+                <ul class="item-details">
+                    <li>Core security fundamentals, cyber threats, vectors, and vulnerability management.</li>
+                    <li>Implementation of personal and organizational defense strategies.</li>
+                </ul>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>get in touch</h2>
+            <p>I am currently exploring opportunities in application development, systems analysis, and technology engineering. Available for immediate opportunities in Fiji or remotely.</p>
+            <div class="hero-links" style="margin-top: 20px;">
+                <a href="mailto:riaprasad07@gmail.com">Email Me</a>
+                <a href="tel:+6798666373">+679-8666373</a>
+                <span>Suva, Fiji</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Ria Prasad</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/riaprasad25" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/prsd-ria" target="_blank">GitHub</a>
+                    <a href="mailto:riaprasad07@gmail.com">Email</a>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
         // Smooth scrolling for navigation links
@@ -1189,38 +648,6 @@
                     });
                 }
             });
-        });
-
-        // Certificate modal functions
-        function openModal() {
-            document.getElementById('certModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('certModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Reveal elements on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.reveal').forEach((element) => {
-            observer.observe(element);
         });
     </script>
 </body>
